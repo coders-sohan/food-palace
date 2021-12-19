@@ -1,10 +1,11 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import HeaderTab from "../components/HeaderTab";
-import SearchBar from "../components/SearchBar";
+import { Raleway_400Regular, useFonts } from "@expo-google-fonts/raleway";
 import AppLoading from "expo-app-loading";
-import { useFonts, Raleway_400Regular } from "@expo-google-fonts/raleway";
+import React from "react";
+import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 import Categories from "../components/Categories";
+import HeaderTab from "../components/HeaderTab";
+import RestaurantItem from "../components/RestaurantItem";
+import SearchBar from "../components/SearchBar";
 
 const Home = () => {
 	let [fontsLoaded] = useFonts({
@@ -20,7 +21,15 @@ const Home = () => {
 			<View style={{ padding: 15 }}>
 				<HeaderTab />
 				<SearchBar />
-				<Categories />
+			</View>
+			<View style={{ padding: 15 }}>
+				<ScrollView
+					showsVerticalScrollIndicator={false}
+					// style={{ marginBottom: 50 }}
+				>
+					<Categories />
+					<RestaurantItem />
+				</ScrollView>
 			</View>
 		</SafeAreaView>
 	);
@@ -30,7 +39,7 @@ export default Home;
 
 const styles = StyleSheet.create({
 	main: {
-		backgroundColor: "#e85d04",
+		backgroundColor: "#f9844a",
 		flex: 1,
 		fontFamily: "Raleway_400Regular",
 	},

@@ -37,7 +37,7 @@ export default function HeaderTab() {
 const HeaderButton = (props) => (
 	<TouchableOpacity
 		style={{
-			backgroundColor: props.activeTab === props.text ? "black" : "#e85d04",
+			backgroundColor: props.activeTab === props.text ? "black" : "#f9844a",
 			paddingTop: 4,
 			paddingBottom: 6,
 			paddingLeft: 16,
@@ -48,7 +48,7 @@ const HeaderButton = (props) => (
 	>
 		<Text
 			style={{
-				// color: props.activeTab === props.text ? "#e85d04" : "black",
+				// color: props.activeTab === props.text ? "#f9844a" : "black",
 				color: "#fff",
 				fontSize: 16,
 				fontFamily: "SemiBold",
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 		marginTop: 25,
 		flexDirection: "row",
 		alignSelf: "center",
-		backgroundColor: "#e85d04",
+		backgroundColor: "#f9844a",
 		borderRadius: 30,
 	},
 });
