@@ -71,7 +71,7 @@ export default function Categories() {
 						<Text
 							style={{
 								fontFamily: "ExtraBold",
-								fontSize: 14,
+								fontSize: 13,
 							}}
 						>
 							{item.text}
