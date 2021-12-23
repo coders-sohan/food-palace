@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AppLoading from "expo-app-loading";
 import { useFonts, Raleway_600SemiBold } from "@expo-google-fonts/raleway";
 
-export default function HeaderTab() {
-	const [activeTab, setActiveTab] = useState("Delivery");
+export default function HeaderTab(props) {
+	// const [activeTab, setActiveTab] = useState("Delivery");
 
 	let [fontsLoaded] = useFonts({
 		SemiBold: Raleway_600SemiBold,
@@ -20,15 +20,15 @@ export default function HeaderTab() {
 				text="Delivery"
 				btnColor="black"
 				textColor="white"
-				activeTab={activeTab}
-				setActiveTab={setActiveTab}
+				activeTab={props.activeTab}
+				setActiveTab={props.setActiveTab}
 			/>
 			<HeaderButton
 				text="Pickup"
 				btnColor="white"
 				textColor="black"
-				activeTab={activeTab}
-				setActiveTab={setActiveTab}
+				activeTab={props.activeTab}
+				setActiveTab={props.setActiveTab}
 			/>
 		</View>
 	);

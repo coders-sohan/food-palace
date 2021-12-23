@@ -1,7 +1,9 @@
 import { Raleway_400Regular, useFonts } from "@expo-google-fonts/raleway";
 import AppLoading from "expo-app-loading";
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Divider } from "react-native-elements";
+import BottomTabs from "../components/BottomTabs";
 import Categories from "../components/Categories";
 import HeaderTab from "../components/HeaderTab";
 import RestaurantItem, { localRestaurants } from "../components/RestaurantItem";
@@ -12,9 +14,11 @@ const YELP_API_KEY =
 
 const Home = () => {
 	const [restaurantsData, setRestaurantsData] = useState(localRestaurants);
+	const [city, setCity] = useState("San Francisco");
+	const [activeTab, setActiveTab] = useState("Delivery");
 
 	const getRestaurantsFromYelp = () => {
-		const yelpUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=NewYork`;
+		const yelpUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
 
 		const apiOptions = {
 			headers: {
@@ -24,12 +28,18 @@ const Home = () => {
 
 		return fetch(yelpUrl, apiOptions)
 			.then((res) => res.json())
-			.then((data) => setRestaurantsData(data.businesses));
+			.then((json) =>
+				setRestaurantsData(
+					json.businesses.filter((business) =>
+						business.transactions.includes(activeTab.toLowerCase())
+					)
+				)
+			);
 	};
 
 	useEffect(() => {
 		getRestaurantsFromYelp();
-	}, []);
+	}, [city, activeTab]);
 
 	let [fontsLoaded] = useFonts({
 		Raleway_400Regular,
@@ -42,22 +52,20 @@ const Home = () => {
 	return (
 		<SafeAreaView style={styles.main}>
 			<View style={{ padding: 15 }}>
-				<HeaderTab />
-				<SearchBar />
+				<HeaderTab activeTab={activeTab} setActiveTab={setActiveTab} />
+				<SearchBar cityHandler={setCity} />
 			</View>
-			<View
+			<ScrollView
+				showsVerticalScrollIndicator={false}
 				style={{
 					paddingHorizontal: 15,
 				}}
 			>
-				<ScrollView
-					showsVerticalScrollIndicator={false}
-					style={{ marginBottom: 150 }}
-				>
-					<Categories />
-					<RestaurantItem restaurantsData={restaurantsData} />
-				</ScrollView>
-			</View>
+				<Categories />
+				<RestaurantItem restaurantsData={restaurantsData} />
+			</ScrollView>
+			<Divider width={1} color="#ff7029" />
+			<BottomTabs />
 		</SafeAreaView>
 	);
 };
