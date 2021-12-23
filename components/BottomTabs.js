@@ -39,7 +39,7 @@ const Icon = (props) => (
 				name={props.icon}
 				size={20}
 				style={{
-					color: "#ffff",
+					color: "#000",
 					marginBottom: 3,
 					alignSelf: "center",
 				}}
@@ -47,7 +47,7 @@ const Icon = (props) => (
 			<Text
 				style={{
 					fontFamily: "Bold",
-					color: "#ffff",
+					color: "#000",
 				}}
 			>
 				{props.text}
