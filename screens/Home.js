@@ -1,13 +1,15 @@
 import { Raleway_400Regular, useFonts } from "@expo-google-fonts/raleway";
 import AppLoading from "expo-app-loading";
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 import { Divider } from "react-native-elements";
-import BottomTabs from "../components/BottomTabs";
-import Categories from "../components/Categories";
-import HeaderTab from "../components/HeaderTab";
-import RestaurantItem, { localRestaurants } from "../components/RestaurantItem";
-import SearchBar from "../components/SearchBar";
+import BottomTabs from "../components/Home/BottomTabs";
+import Categories from "../components/Home/Categories";
+import HeaderTab from "../components/Home/HeaderTab";
+import RestaurantItem, {
+	localRestaurants,
+} from "../components/Home/RestaurantItem";
+import SearchBar from "../components/Home/SearchBar";
 
 const YELP_API_KEY =
 	"ZalVh1BRHhcK-_z4T5V9g8sLgFJenxA6y1_CdI9vBNMQ8JpVCPpqpluTvqBplwTSC4OdQNbXRjiHKyc392FCFkOlhxWRia4SaZWjCpEmKvJTtrG5TjWmvks7QhbEYXYx";

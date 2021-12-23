@@ -1,35 +1,35 @@
-import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import { Raleway_800ExtraBold, useFonts } from "@expo-google-fonts/raleway";
 import AppLoading from "expo-app-loading";
-import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
+import React from "react";
+import { Image, ScrollView, Text, View } from "react-native";
 
 const items = [
 	{
-		image: require("../assets/images/shopping-bag.png"),
+		image: require("../../assets/images/shopping-bag.png"),
 		text: "Pick-Up",
 	},
 	{
-		image: require("../assets/images/soft-drink.png"),
+		image: require("../../assets/images/soft-drink.png"),
 		text: "Soft Drinks",
 	},
 	{
-		image: require("../assets/images/bread.png"),
+		image: require("../../assets/images/bread.png"),
 		text: "Bakery Items",
 	},
 	{
-		image: require("../assets/images/fast-food.png"),
+		image: require("../../assets/images/fast-food.png"),
 		text: "Fast Foods",
 	},
 	{
-		image: require("../assets/images/deals.png"),
+		image: require("../../assets/images/deals.png"),
 		text: "Deals",
 	},
 	{
-		image: require("../assets/images/coffee.png"),
+		image: require("../../assets/images/coffee.png"),
 		text: "Coffee & Tea",
 	},
 	{
-		image: require("../assets/images/desserts.png"),
+		image: require("../../assets/images/desserts.png"),
 		text: "Desserts",
 	},
 ];

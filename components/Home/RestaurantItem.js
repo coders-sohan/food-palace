@@ -1,12 +1,12 @@
-import React from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import {
-	Raleway_700Bold,
 	Raleway_400Regular,
+	Raleway_700Bold,
 	useFonts,
 } from "@expo-google-fonts/raleway";
 import AppLoading from "expo-app-loading";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 export const localRestaurants = [
 	{
@@ -132,12 +132,21 @@ const RestaurantInfo = (props) => (
 			style={{
 				backgroundColor: "#363636",
 				height: 26,
-				width: 28,
-				justifyContent: "center",
+				width: 60,
+				paddingHorizontal: 10,
+				// paddingVertical: 5,
+				flexDirection: "row",
+				justifyContent: "space-between",
 				alignItems: "center",
-				borderRadius: 6,
+				borderRadius: 5,
 			}}
 		>
+			<MaterialCommunityIcons
+				name="star"
+				size={14}
+				style={{ marginTop: 3.5 }}
+				color="#ffffff"
+			/>
 			<Text
 				style={{
 					fontFamily: "Bold",
